@@ -1,0 +1,9 @@
+{
+    "role_name": "role_name",
+    "scenario_name": "default",
+    "author": "Roman I Pozdeev",
+    "description": "your description",
+    "company": "rpozdeev",
+    "license": ["MIT", "BSD", "GPLv2", "GPLv3", "Apache", "CC-BY"],
+    "min_ansible_version": 2.6
+}
