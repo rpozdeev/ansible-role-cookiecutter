@@ -1,0 +1,5 @@
+---
+#- name: docker
+#  scm: git
+#  src: git+git@github.com:rpozdeev/ansible-docker.git
+#  version: master
