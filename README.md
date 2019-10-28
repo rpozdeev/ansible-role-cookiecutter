@@ -1,5 +1,5 @@
 # ansible-role-cookiecutter
-Шаблон ansible роли с включеным molecule
+Cookiecutter шаблон ansible роли с включеным molecule
 
 # Usage
 ```bash
