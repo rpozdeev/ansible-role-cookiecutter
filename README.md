@@ -6,3 +6,13 @@ Cookiecutter шаблон ansible роли с включеным molecule
 pip install cookiecutter
 cookiecutter gh:rpozdeev/ansible-role-cookiecutter
 ```
+
+# Requiremets
+Create file ./molecule/<scenarion>/requirements.yml
+```yaml
+---
+- name: docker
+  scm: git
+  src: git+git@github.com:rpozdeev/ansible-docker.git
+ version: master
+```
