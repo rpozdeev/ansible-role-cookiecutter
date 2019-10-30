@@ -8,7 +8,7 @@ cookiecutter gh:rpozdeev/ansible-role-cookiecutter
 ```
 
 # Requiremets
-Create file ./molecule/<scenarion>/requirements.yml
+Create file ./molecule/\<scenarion\>/requirements.yml
 ```yaml
 ---
 - name: docker
