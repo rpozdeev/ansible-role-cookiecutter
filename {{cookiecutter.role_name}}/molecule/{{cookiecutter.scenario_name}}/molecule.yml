@@ -6,22 +6,51 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance-1
-    image: centos:7
-    command: /sbin/init
-    tmpfs:
-      - /run
-      - /tmp
+#  - name: bionic
+#    image: quay.io/paulfantom/molecule-systemd:ubuntu-18.04
+#    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+#    privileged: true
+#    volumes:
+#      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+#  - name: xenial
+#    image: quay.io/paulfantom/molecule-systemd:ubuntu-16.04
+#    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+#    privileged: true
+#    volumes:
+#      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+#  - name: centos7
+#    image: quay.io/paulfantom/molecule-systemd:centos-7
+#    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+#    privileged: true
+#    volumes:
+#      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: centos8
+    image: quay.io/paulfantom/molecule-systemd:centos-8
+    docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
+    privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
-#  - name: instance-2
-#    image: ubuntu:bionic
+    groups:
+      - python3
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  playbooks:
+    create: create.yml
+    prepare: prepare.yml
+    converge: playbook.yml
+    destroy: destroy.yml
+  inventory:
+    group_vars:
+      python3:
+        ansible_python_interpreter: /usr/bin/python3
+scenario:
+  name: default
 verifier:
   name: testinfra
+  options:
+    verbose: true
   lint:
     name: flake8
+    enabled: true
