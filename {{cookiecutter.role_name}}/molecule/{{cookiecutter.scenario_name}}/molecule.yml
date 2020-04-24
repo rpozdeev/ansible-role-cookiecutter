@@ -1,3 +1,4 @@
+{%- raw %}
 ---
 dependency:
   name: galaxy
@@ -54,3 +55,4 @@ verifier:
   lint:
     name: flake8
     enabled: true
+{% endraw -%}

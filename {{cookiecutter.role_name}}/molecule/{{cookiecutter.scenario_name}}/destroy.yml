@@ -1,3 +1,4 @@
+{%- raw %}
 ---
 - name: Destroy
   hosts: localhost
@@ -30,3 +31,4 @@
         docker_host: "{{ item.docker_host | default('unix://var/run/docker.sock') }}"
         state: absent
       with_items: "{{ molecule_yml.platforms | molecule_get_docker_networks }}"
+{% endraw -%}
