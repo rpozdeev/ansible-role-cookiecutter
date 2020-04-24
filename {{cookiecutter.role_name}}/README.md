@@ -22,6 +22,13 @@ Example Playbook
       roles:
          - { role: username.rolename, x: 42 }
 
+Test Role
+---------
+
+```bash 
+tox -e py37-ansible28 -- molecule test -s default
+```
+
 License
 -------
 
